@@ -1,11 +1,6 @@
-<?php
-require 'config/config.php';
+<?php 
+include("includes/header.php");
 ?>
-<html>
-<head>
-    <title>Social</title>
-</head>
-<body>
 Hello
 </body>
 </html> 
