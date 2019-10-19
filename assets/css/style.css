@@ -9,7 +9,7 @@
 
 body{
     line-height: 17px;
-
+    background-color: azure;
 }
 
 .top_bar{
@@ -20,6 +20,7 @@ body{
     border-bottom: 5px solid #2980b9;
     margin: 0 0 10px 0;
     display: inline-flex;
+    position: fixed;
 }
 
 .logo a{
@@ -41,7 +42,7 @@ body{
 
 nav{
     float: right;
-    right: 10px;
+    right: 1px;
     position: absolute;
     margin: 10px;
 }
@@ -51,4 +52,22 @@ nav a{
     color: #fff;
     text-decoration: none;
     font-size: 17px;
+}
+
+nav a:hover{
+    border-bottom: 7px solid #e67e22;
+    color: #fff;
+}
+
+wrapper{
+    margin: 0 auto;
+    top: 50px;
+    position: relative;
+    padding: 0 10px;
+    width: 75%;
+    min-width: 950px;
+}
+
+.column{
+    background-color: blue;
 }
