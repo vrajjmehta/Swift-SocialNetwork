@@ -29,26 +29,32 @@ else{
             <a href="index.php"> Swift Social Media </a>
         </div>
 
-    <nav>
-        <a href="#">
-            <?php echo $user['first_name']; ?>
-        </a>
-        <a href="#">
-            <i class="fa fa-home" aria-hidden="true"></i>
-        </a>
-        <a href="#">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-        </a>
-        <a href="#">
-            <i class="fa fa-bell-o" aria-hidden="true"></i>
-        </a>
-        <a href="#">
-            <i class="fa fa-users" aria-hidden="true"></i>
-        </a>
-        <a href="#">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-        </a>
-    </nav>
+        <nav>
+			<a href="<?php echo $userLoggedIn; ?>">
+				<?php echo $user['first_name']; ?>
+			</a>
+			<a href="index.php">
+				<i class="fa fa-home fa-lg"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-envelope fa-lg"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-bell fa-lg"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-users fa-lg"></i>
+			</a>
+			<a href="#">
+				<i class="fa fa-cog fa-lg"></i>
+			</a>
+			<a href="includes/form_handlers/handlers/logout.php">
+				<i class="fa fa-sign-out fa-lg"></i>
+			</a>
+
+
+
+		</nav>
 
     </div>
 
