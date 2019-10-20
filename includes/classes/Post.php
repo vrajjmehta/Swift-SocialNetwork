@@ -71,7 +71,7 @@ class Post {
 					$user_to = "";
 				}
 				else {
-					$user_to_obj = new User($this->con, $row['user_to']);
+					$user_to_obj = new User($con, $row['user_to']);
 					$user_to_name = $user_to_obj->getFirstAndLastName();
 					$user_to = "to <a href='" . $row['user_to'] ."'>" . $user_to_name . "</a>";
 				}
@@ -82,7 +82,9 @@ class Post {
 					continue;
 				}
 
-				
+				$user_logged_obj = new User($this->con, $userLoggedIn);
+				if($user_logged_obj->isFriend($added_by)){
+
 					if($num_iterations++ < $start)
 						continue; 
 
@@ -100,7 +102,19 @@ class Post {
 					$first_name = $user_row['first_name'];
 					$last_name = $user_row['last_name'];
 					$profile_pic = $user_row['profile_pic'];
+					
+					?>
+					<script>
+						function toggle() {
+							var element = document.getElementById("comment_section");
 
+							if(element.style.display == "block") 
+								element.style.display = "none";
+							else 
+								element.style.display = "block";
+							}	 
+					</script>
+					<?
 
 					//Timeframe
 					$date_time_now = date("Y-m-d H:i:s");
@@ -181,7 +195,7 @@ class Post {
 
 							</div>
 							<hr>";
-				
+				}
 
 			} //End while loop
 
@@ -194,7 +208,11 @@ class Post {
 
 		echo $str;
 
+
 	}
+
+
+
 
 }
 
