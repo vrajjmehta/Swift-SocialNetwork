@@ -53,7 +53,7 @@ if(isset($_POST['post'])){
 
 		//Original ajax request for loading first posts 
 		$.ajax({
-			url: "includes/form_handlers/handlers/ajax_load_posts.php",
+			url: "includes/handlers/ajax_load_posts.php",
 			type: "POST",
 			data: "page=1&userLoggedIn=" + userLoggedIn,
 			cache:false,
@@ -74,7 +74,7 @@ if(isset($_POST['post'])){
 				$('#loading').show();
 
 				var ajaxReq = $.ajax({
-					url: "includes/form_handlers/handlers/ajax_load_posts.php",
+					url: "includes/handlers/ajax_load_posts.php",
 					type: "POST",
 					data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
 					cache:false,
@@ -98,6 +98,9 @@ if(isset($_POST['post'])){
 	});
 
 	</script>
+
+
+
 
 	</div>
 </body>

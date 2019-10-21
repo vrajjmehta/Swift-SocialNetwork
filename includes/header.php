@@ -48,7 +48,7 @@ else{
 			<a href="#">
 				<i class="fa fa-cog fa-lg"></i>
 			</a>
-			<a href="includes/form_handlers/handlers/logout.php">
+			<a href="includes/handlers/logout.php">
 				<i class="fa fa-sign-out fa-lg"></i>
 			</a>
 
