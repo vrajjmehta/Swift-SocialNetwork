@@ -27,7 +27,7 @@ a{
 }
 
 .wrapper{
-    background-image: url("../images/backgrounds/desktop.jpg");
+    background-image: url("../images/backgrounds/giphy.jpg");
     background-size: 100%;
     width: 100%;
     height: 100%;
@@ -46,7 +46,7 @@ a{
     border: 1px solid #EDEDED;
     border-radius: 7px;
     padding: 5px;
-    opacity: 0.98;
+    opacity: 0.83;
 }
 
 .login_header{
