@@ -52,7 +52,7 @@ class Post {
 
 
 		$str = ""; //String to return 
-		$data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC");
+		$data_query = mysqli_query($this->con, "SELECT * FROM posts WHERE deleted='no' ORDER BY date_added DESC");
 
 		if(mysqli_num_rows($data_query) > 0) {
 
@@ -132,7 +132,7 @@ class Post {
 					$end_date = new DateTime($date_time_now); //Current time
 					$interval = $start_date->diff($end_date); //Difference between dates 
 					if($interval->y >= 1) {
-						if($interval == 1)
+						if($interval->y == 1)
 							$time_message = $interval->y . " year ago"; //1 year ago
 						else 
 							$time_message = $interval->y . " years ago"; //1+ year ago
