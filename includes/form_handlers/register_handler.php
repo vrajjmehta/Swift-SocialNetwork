@@ -45,7 +45,9 @@ if(isset($_POST['register_button'])){   //button clicked
     //confirm pass
     $password2 = strip_tags($_POST['reg_password2']);   //remove html tags
   
-    $date = date("Y-m-d");  //current date
+    $birth_date = $_POST['birthday'];  //birth date
+
+    $uname = $_POST['username'];
 
     if($em == $em2){
         //check email in valid format
@@ -59,7 +61,7 @@ if(isset($_POST['register_button'])){   //button clicked
             $num_rows = mysqli_num_rows($e_check);
 
             if($num_rows >0 ){
-                array_push($error_array,"Email already in use<br>");            
+                array_push($error_array,"<br>Email already in use<br>");            
             }
         }
         else{
@@ -85,32 +87,25 @@ if(isset($_POST['register_button'])){   //button clicked
         }
     }
 
-    if(strlen($password)>30 || strlen($password)<5){
-        array_push($error_array,"Your password must be between 5 and 30 characters<br>");
+    $u_check = mysqli_query($con,"SELECT username FROM users WHERE username ='$uname'");     
+    $num_rows = mysqli_num_rows($u_check);
+    if($num_rows >0 ){
+        array_push($error_array,"Username already exists<br>");            
     }
+
 
     if(empty($error_array)){
         $password = md5($password);     //encrypt password before sending to database
 
-        //Generate username by concating firstname and lastname
-        $username = $fname ."_". $lname;
-        $check_username_query = mysqli_query($con,"SELECT username FROM users WHERE username = '$username'");
+        $username = $uname;
         
-        $i=0;
-        //if username exists
-        while(mysqli_num_rows($check_username_query)!=0){
-            $i++;
-            $username = $username."_".$i;
-            $check_username_query = mysqli_query($con,"SELECT username FROM users WHERE username = '$username'");
-        }
         //Profile picture assignment
-        $rand = rand(1,2);  //random number
-        if($rand==1)
-        $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
-        else if($rand==2)
-        $profile_pic = "assets/images/profile_pics/defaults/head_red.png";
+        $profile_pic = "dataset-medium/$username/profile.jpg";
+        if(!file_exists($profile_pic)){
+            $profile_pic="assets/images/profile_pics/defaults/head_red.png";
+        }
 
-        $query = mysqli_query($con,"INSERT INTO users VALUES(null,'$fname','$lname','$username','$em','$password','$date','$profile_pic','0','0','no',',')");
+        $query = mysqli_query($con,"INSERT INTO users VALUES(null,'$fname','$lname','$username','$em','$password','$birth_date','$profile_pic','0','0','no',',')");
 
         array_push($error_array,"<span style='color:#14C800;'>You are all set! Go ahead and Login!</span><br>");
 

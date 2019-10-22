@@ -38,7 +38,7 @@ require 'includes/form_handlers/login_handler.php';
 
             <div id="first">
                 <form action="register.php" method="POST">
-                    <input type="email" name="log_email" placeholder="Email Address" value ="<?php 
+                    <input type="text" name="log_email" placeholder="Username" value ="<?php 
                     if(isset($_SESSION['log_email'])){
                         echo $_SESSION['log_email'];
                     }?>" required>
@@ -92,9 +92,25 @@ require 'includes/form_handlers/login_handler.php';
                     <input type="password" name="reg_password2" placeholder="Confirm Password" required>
                     <br>
                     <?php if(in_array("Your password do not match<br>",$error_array)) echo "Your password do not match<br>"; 
-                    else if(in_array("Your password can contain only English characters or number<br>",$error_array)) echo "Your password can contain only English characters or number<br>"; 
-                    else if(in_array("Your password must be between 5 and 30 characters<br>",$error_array)) echo "Your password must be between 5 and 30 characters<br>"; ?>
+                    else if(in_array("Your password can contain only English characters or number<br>",$error_array)) echo "Your password can contain only English characters or number<br>";?>
 
+                    <input type="text" name="username" placeholder="Username" value ="<?php 
+                    if(isset($_SESSION['username'])){
+                        echo $_SESSION['username'];
+                    }
+                    ?>"required>
+                    <?php if(in_array("Username already exists<br>",$error_array)) echo "Username already exists<br>"; ?>
+                    <br>
+
+                    <!--birthday-->
+                    <label for="brithday">Birthday:</label>
+                    <input type="date" name="birthday" value ="<?php 
+                    if(isset($_SESSION['birthday'])){
+                        echo $_SESSION['birthday'];
+                    }
+                    ?>" required>
+
+                    <br>
 
                     <input type="submit" name="register_button" value="Register">
                     <?php if(in_array("<span style='color:#14C800;'>You are all set! Go ahead and Login!</span><br>",$error_array)) echo "<span style='color:#14C800;'>You are all set! Go ahead and Login!</span><br>" ?>
