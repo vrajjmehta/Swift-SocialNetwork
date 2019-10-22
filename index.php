@@ -17,7 +17,6 @@ if(isset($_POST['post'])){
 			<a href="<?php echo $userLoggedIn; ?>">
 			<?php 
 			echo $user['first_name'] . " " . $user['last_name'];
-
 			 ?>
 			</a>
 			<br>
