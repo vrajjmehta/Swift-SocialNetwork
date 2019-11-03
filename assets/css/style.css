@@ -298,7 +298,7 @@ textarea:focus {
 table {
   	border-collapse: collapse;
   	width: 50%;
-	color: darkred;
+	color: rgb(155, 3, 3);
 }
 
 table, th, td {
